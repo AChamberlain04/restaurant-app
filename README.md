@@ -81,3 +81,8 @@ Business rules (tax rate, opening hours, slot length, seats per slot, table coun
 - Switch to SQLAlchemy + PostgreSQL so data persists between restarts
 - Push updates to the kitchen board over WebSockets instead of polling
 - A menu editor for adding, editing, and uploading photos of items
+
+
+  ## How I built this
+I built this project with AI assistance as a way to learn Python, Flask, and SQL
+coming from a MERN background, then studied and tested every part of it.
