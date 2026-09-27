@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Order {{ code }} · Ember & Oak{% endblock %}
+{% block content %}
+<section class="track card" id="track" data-code="{{ code }}">
+  <p class="eyebrow">Order <strong>#{{ code }}</strong></p>
+  <h1 id="status-headline">Checking on your order…</h1>
+  <p id="status-sub" class="muted"></p>
+
+  <ol class="progress" id="progress">
+    <li data-step="received">Received</li>
+    <li data-step="preparing">Preparing</li>
+    <li data-step="ready">Ready</li>
+    <li data-step="completed">Picked up</li>
+  </ol>
+
+  <div id="order-detail"></div>
+  <p class="muted small">This page refreshes automatically. Bookmark it to check back later.</p>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='track.js') }}"></script>{% endblock %}

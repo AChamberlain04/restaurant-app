@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Kitchen Dashboard · Ember & Oak{% endblock %}
+{% block main_class %}container wide{% endblock %}
+{% block content %}
+<div class="dash-head">
+  <h1>Kitchen dashboard</h1>
+  <p class="muted">Signed in as {{ staff_name }} · auto-refreshes every 10s</p>
+</div>
+
+<section class="stats" id="stats">
+  <div class="stat"><span id="s-active">–</span><small>Active orders</small></div>
+  <div class="stat"><span id="s-orders">–</span><small>Orders today</small></div>
+  <div class="stat"><span id="s-revenue">–</span><small>Revenue today</small></div>
+  <div class="stat"><span id="s-covers">–</span><small>Reserved covers today</small></div>
+</section>
+
+<div class="tabs" role="tablist">
+  <button role="tab" class="tab active" data-tab="orders">Orders</button>
+  <button role="tab" class="tab" data-tab="reservations">Reservations</button>
+  <button role="tab" class="tab" data-tab="menu">Menu</button>
+</div>
+
+<section class="panel" id="panel-orders">
+  <div class="board">
+    <div class="column"><h2>Received <span class="count" id="c-received">0</span></h2><div id="col-received" class="tickets"></div></div>
+    <div class="column"><h2>Preparing <span class="count" id="c-preparing">0</span></h2><div id="col-preparing" class="tickets"></div></div>
+    <div class="column"><h2>Ready <span class="count" id="c-ready">0</span></h2><div id="col-ready" class="tickets"></div></div>
+  </div>
+</section>
+
+<section class="panel" id="panel-reservations" hidden>
+  <label class="inline-label">Date <input type="date" id="res-date"></label>
+  <table class="table">
+    <thead><tr><th>Time</th><th>Name</th><th>Guests</th><th>Phone</th><th>Notes</th><th>Status</th></tr></thead>
+    <tbody id="res-body"></tbody>
+  </table>
+</section>
+
+<section class="panel" id="panel-menu" hidden>
+  <table class="table">
+    <thead><tr><th>Item</th><th>Category</th><th>Price</th><th>Available</th></tr></thead>
+    <tbody id="menu-body"></tbody>
+  </table>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='staff.js') }}"></script>{% endblock %}

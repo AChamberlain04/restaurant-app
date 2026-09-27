@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Staff Login · Ember & Oak{% endblock %}
+{% block content %}
+<form method="post" class="card stack login">
+  <h1>Staff login</h1>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <label>Username<input name="username" required autocomplete="username" autofocus></label>
+  <label>Password<input name="password" type="password" required autocomplete="current-password"></label>
+  <button class="btn primary">Log in</button>
+  <p class="muted small">Demo credentials: <code>admin</code> / <code>password123</code></p>
+</form>
+{% endblock %}

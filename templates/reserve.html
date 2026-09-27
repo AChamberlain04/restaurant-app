@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Reserve a Table · Ember & Oak{% endblock %}
+{% block content %}
+<section class="reserve-layout">
+  <div>
+    <h1>Book a table</h1>
+    <p class="muted">Pick a date and party size to see open times. Parties larger than 12, give us a call.</p>
+  </div>
+
+  <form id="reserve-form" class="card stack" novalidate>
+    <div class="row">
+      <label>Date<input type="date" name="date" required></label>
+      <label>Guests
+        <select name="party_size">
+          {% for n in range(1, 13) %}<option value="{{ n }}" {{ 'selected' if n == 2 }}>{{ n }}</option>{% endfor %}
+        </select>
+      </label>
+    </div>
+
+    <fieldset>
+      <legend>Time</legend>
+      <div id="slots" class="slots"><p class="muted">Choose a date to see times.</p></div>
+    </fieldset>
+
+    <div class="row">
+      <label>Name<input name="name" required maxlength="80" autocomplete="name"></label>
+      <label>Phone<input name="phone" required maxlength="30" autocomplete="tel"></label>
+    </div>
+    <label><span>Email <span class="muted">(optional)</span></span><input name="email" type="email" maxlength="120" autocomplete="email"></label>
+    <label>Special requests<textarea name="notes" rows="2" maxlength="300" placeholder="Birthday, high chair, booth…"></textarea></label>
+    <p class="error" id="reserve-error" hidden></p>
+    <button class="btn primary" id="reserve-btn">Reserve</button>
+  </form>
+
+  <div id="reserve-done" class="card confirm" hidden></div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='reserve.js') }}"></script>{% endblock %}

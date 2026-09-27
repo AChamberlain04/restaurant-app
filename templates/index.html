@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Order Online · Ember & Oak{% endblock %}
+{% block content %}
+<section class="hero">
+  <h1>Wood-fired comfort, <em>ready when you are.</em></h1>
+  <p>Order for pickup or from your table. You'll get a live tracking page that updates as your food moves through the kitchen.</p>
+</section>
+
+<div class="order-layout">
+  <section>
+    <div class="category-tabs" id="category-tabs"></div>
+    <div id="menu" class="menu"><p class="muted">Loading menu…</p></div>
+  </section>
+
+  <aside class="cart card" id="cart">
+    <h2>Your order</h2>
+    <ul id="cart-lines" class="cart-lines"></ul>
+    <p id="cart-empty" class="muted">Nothing here yet — add something tasty.</p>
+    <dl class="totals">
+      <div><dt>Subtotal</dt><dd id="subtotal">$0.00</dd></div>
+      <div><dt>Tax</dt><dd id="tax">$0.00</dd></div>
+      <div class="grand"><dt>Total</dt><dd id="total">$0.00</dd></div>
+    </dl>
+
+    <form id="checkout" class="stack" novalidate>
+      <div class="segmented" role="radiogroup" aria-label="Order type">
+        <label><input type="radio" name="order_type" value="pickup" checked> Pickup</label>
+        <label><input type="radio" name="order_type" value="dine_in"> Dine-in</label>
+      </div>
+      <label>Name<input name="customer_name" required maxlength="80" autocomplete="name"></label>
+      <label>Phone<input name="phone" required maxlength="30" autocomplete="tel" inputmode="tel"></label>
+      <label id="table-field" hidden>Table number<input name="table_number" type="number" min="1" max="30"></label>
+      <label>Notes for the kitchen<textarea name="notes" rows="2" maxlength="300" placeholder="Allergies, no onions, etc."></textarea></label>
+      <p class="error" id="checkout-error" hidden></p>
+      <button class="btn primary" id="place-order" disabled>Place order</button>
+    </form>
+  </aside>
+</div>
+
+<button class="cart-fab" id="cart-fab" hidden>View order · <span id="fab-total">$0.00</span></button>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='order.js') }}"></script>{% endblock %}
