@@ -1,6 +1,9 @@
 # Ember & Oak: a restaurant service app 
 
-https://restaurant-app-u7i0.onrender.com/
+**Live demo:** https://restaurant-app-u7i0.onrender.com
+Staff dashboard: `/staff` (login `admin` / `password123`)
+
+> Hosted on Render's free tier: the first visit after a quiet spell can take about a minute while the server wakes up. Demo data resets whenever the app restarts.
 
 A full-stack restaurant app built with **Python (Flask)**, **SQLite** and vanilla **HTML/CSS/JavaScript**. It has three parts:
 
@@ -12,7 +15,7 @@ A full-stack restaurant app built with **Python (Flask)**, **SQLite** and vanill
 ## Quick start
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py                     # or: flask --app app run --debug
@@ -75,6 +78,6 @@ Business rules (tax rate, opening hours, slot length, seats per slot, table coun
 
 - Online payments (Stripe Checkout)
 - Text message notifications when an order is ready (Twilio)
-- Switch to SQLAlchemy + PostgreSQL and deploy (Render, Railway, Fly.io)
+- Switch to SQLAlchemy + PostgreSQL so data persists between restarts
 - Push updates to the kitchen board over WebSockets instead of polling
 - A menu editor for adding, editing, and uploading photos of items
