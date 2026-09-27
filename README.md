@@ -1,5 +1,5 @@
-# Ember & Oak: a restaurant service app https://restaurant-app-u7i0.onrender.com/
-
+# Ember & Oak: a restaurant service app 
+https://restaurant-app-u7i0.onrender.com/
 A full-stack restaurant app built with **Python (Flask)**, **SQLite** and vanilla **HTML/CSS/JavaScript**. It has three parts:
 
 - **Customers** browse the menu, build an order, and check out for pickup or dine-in.
